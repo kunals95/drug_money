@@ -3,3 +3,6 @@ venv
 *~
 .DS_Store
 csvfiles
+csv/nj_doc_info_paid.csv
+csv/nj_payments_all_years_consl.csv
+csv/nj_scripts_all_years.csv

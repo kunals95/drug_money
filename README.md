@@ -1,10 +1,9 @@
 # Drug Money
 
 <h3><b>Introduction</b></h3>
-Every year pharmaceutical and biological manufacturing companies spend upwards of $3 Billion in various forms of payments for healthcare professionals. Whether it be food, travel, gifts, or licensing fees each payment must be disclosed to the Centers of Medicare & Medicaid Services. In 2014, the government decided to make this information publicly available as a part of a dataset call Open Payments.
+Every year the pharmaceutical industry showers doctors with billions of dollars of cash and gift for a chance to win over their prescription pads. Whether it be food, travel, gifts, or licensing fees each payment must be disclosed to the Centers of Medicare & Medicaid Services. In 2014, the government decided to make this information publicly available as a part of a dataset called Open Payments.
 
-I wanted to dive in to not only see how these companies are paying doctors but also the effects that these payments may have. Utilizing other datasets also publicly available through the Centers of Medicare & Medicaid Services, I analyzed payments received by doctors along with the prescriptions written by them to see if any insight could be found. With **over 30 GB** in CSV files, I was able to find trends within certain specialties displaying statistically significant differences in the number of brand name prescriptions written by doctors receiving payments versus their colleagues who were not receiving payments.
-
+I wanted to dive in to not only see how much these companies are paying doctors but also if money really does talk. Utilizing other datasets also publicly available through the Centers of Medicare & Medicaid Services, I analyzed more than 40 million payments and 95 million prescriptions to uncover if lining doctors' pockets affected the number of brand-name medications they prescribed. With **over 100 GB** in CSV files, I was able to find trends within certain specialties displaying statistically significant differences in the number of brand name prescriptions written by doctors receiving payments versus their colleagues who were not receiving payments.
 
 <h3><b>Background</b></h3>
 <em><h5>The Sunshine Act</h5></em>

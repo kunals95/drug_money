@@ -1,6 +1,23 @@
 <html lang="en">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120516775-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-120516775-1');
+  </script>
+  <!-- Page info -->
+  <meta name="title" property="og:title" content="Drug Money" />
+  <meta name="image" property="og:image" content="https://drugmoney.herokuapp.com/static/assets/img/pills_title.jpg" />
+  <meta property="og:image:width" content="1800" />
+  <meta property="og:image:height" content="1013" />
+  <meta name="description" property="og:description" content="How the billions pharmaceutical companies spend on doctors affects the brand-name prescriptions they write" />
+  <meta name="author" content="Kunal Shah" />
+  <meta property="og:type" content="website" />
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="152x152" href="static/assets/img/doc.png">
   <link rel="icon" type="image/png" href="static/assets/img/doc.png">
@@ -88,7 +105,7 @@
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand" style="background-color:rgba(0,0,0,0.52);">
             <p class="h1-heading"style="color:White;font-size:70px">Drug Money<!-- or call this Drug Money --></p>
-            <p class="h2-heading"style="color:White;font-size:18px"><i>How the corporate payments doctors recieve influence the prescriptions they write<br><br><font color="Orange">An Analysis by Kunal Shah</font></i></p>
+            <p class="h2-heading"style="color:White;font-size:18px"><i>How pharmaceutical companies spend billions influencing the prescriptions doctors write<br><br><font color="Orange">An Analysis by Kunal Shah</font></i></p>
             <p>&nbsp;</p>
           </div>
         </div>
@@ -103,23 +120,57 @@
           <h2>Synopsis</h2>
         </div>
         <div>
-        <iframe width="700" height="393.75" src="https://www.youtube-nocookie.com/embed/YQZ2UeOTO3I?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <p><br></p>
-        </div>
-        <div>
           <p style='color:black' class="text-primary">
-            Every year pharmaceutical and biological manufacturing companies spend upwards of $3 Billion in various forms of payments for healthcare professionals. Whether it be food, travel, gifts, or licensing fees each payment must be disclosed to the Centers of Medicare & Medicaid Services. In 2014, the government decided to make this information publicly available as a part of a dataset call <em>Open Payments</em>.<br>I wanted to dive in to not only see how these companies are paying doctors but also the effects that these payments may have. Utilizing other datasets also publicly available through the Centers of Medicare & Medicaid Services, I analyzed payments received by doctors along with the prescriptions written by them to see if any insight could be found. With <a style='color:#656565'><b>over 30 GB</b></a> in CSV files, I was able to find trends within certain specialties displaying statistically significant differences in the number of brand name prescriptions written by doctors receiving payments versus their colleagues who were not receiving payments.
+            Every year the pharmaceutical industry showers doctors with billions of dollars of cash and gift for a chance to win over their prescription pads. Whether it be food, travel, gifts, or licensing fees each payment must be disclosed to the Centers of Medicare & Medicaid Services. In 2014, the government decided to make this information publicly available as a part of a dataset called <em>Open Payments</em>.<br><br>I wanted to dive in to not only see how much these companies are paying doctors but also if money really does talk. Utilizing other datasets also publicly available through the Centers of Medicare & Medicaid Services, I analyzed more than 40 million payments and 95 million prescriptions to uncover if lining doctors' pockets affected the number of brand-name medications they prescribed. With <em>over 30 GB</em> in CSV files, I was able to find trends within certain specialties displaying statistically significant differences in the number of brand name prescriptions written by doctors receiving payments versus their colleagues who were not receiving payments.
           </p>
         </div>
         <div>
           <ul>
             <h4>
+              <li><a href="./methods"><em>Read an in-depth explanation of this project</em></a></li>
               <li><a href="./search">Find out how much your doctor was paid</a></li>
               <li><a href="./findings">See what I discovered in my analysis</a></li>
-              <li><a href="./methods">Learn about the methodology behind this analysis</a></li>
               <li><a href="./raw-data">Download the raw data I used</a></li>
             </h4>
           </ul>
+        </div>
+        <div class="u-video">
+          <iframe width="700" height="393.75" src="https://www.youtube-nocookie.com/embed/YQZ2UeOTO3I?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          </iframe>
+          <p><br></p>
+        </div>
+        <div class="title">
+          <br>
+          <h2>Technologies Used</h2>
+        </div>
+        <div class="row">
+          <section class="col-md-4">
+            <p style='color:black' class="text-primary">
+              Python<br>
+              Jupyter Notebook<br>
+              NumPy<br>
+              Flask<br>
+            </p>
+          </section>
+          <section class="col-md-4">
+            <p style='color:black' class="text-primary">
+              AWS<br>
+              Scikit Learn<br>
+              Plotly<br>
+              SciPy<br>
+            </p>
+          </section>
+          <section class="col-md-4">
+            <p style='color:black' class="text-primary">
+              Pandas<br>
+              Matplotlib<br>
+              HTML5<br>
+              Bootstrap<br>
+            </p>
+          </section>
+        </div>
+        <div>
+          <img src="static/assets/img/techs_used.jpg" alt="Technologies Utilized" style='height: 65%; width: 65%; object-fit: contain'/>
         </div>
       </div>
     </div>
