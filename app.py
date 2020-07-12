@@ -4,7 +4,6 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import os
-#Name of folder containing file
 from pythonfiles.company_breakdown_bynpi import *
 from pythonfiles.search_result_alt import *
 #Importing my variables
@@ -74,8 +73,8 @@ def graph_npi(NPI):
         pay_by_comp = pay_company_breakdown(paid,NPI)
         scripts_by_comp = scripts_company_breakdown(scripts,NPI)
         paid_table = pay_table(paid,NPI)
-        pie_type = pie_type(paid,NPI)
-        return render_template('graph_npi.html', pay_by_comp=pay_by_comp, paid_table=paid_table, pie_type=pie_type, scripts_by_comp=scripts_by_comp, fn=fn_df, ln=ln_df, address=address_df, city=city_df, zip=zip_df, state=state_df, type=type_df, spec=spec_df)
+        pie_type1 = pie_type(paid,NPI)
+        return render_template('graph_npi.html', pay_by_comp=pay_by_comp, paid_table=paid_table, type_pie_chart=pie_type1, scripts_by_comp=scripts_by_comp, fn=fn_df, ln=ln_df, address=address_df, city=city_df, zip=zip_df, state=state_df, type=type_df, spec=spec_df)
     except IndexError:
         return render_template('404.html'), 404
 
@@ -86,3 +85,65 @@ def page_not_found(e):
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0',port=port)
+
+
+#DON'T USE THIS
+"""
+@app.route('/test_graph/', methods=["POST","GET"])
+def doc_graph():
+    input_ln = request.form.get('ln')
+    output = company_breakdown_bynpi.company_breakdown(input_ln)
+    return render_template('test_graph.html',output=output, ln=input_ln)
+    #I have the HTML file askign for the input of ln to print on the webpage that's why it's included here.
+"""
+#Also see line 8, include at end of your py file:
+"""
+if __name__ == '__main__':
+    NAME OF FUNCTION()
+"""
+#Have to include this in your HTML:
+"""
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{{ output|safe }}
+"""
+"""
+@app.route('/search/npi/1922188184')
+def graph_pay():
+    paid = pd.read_csv('/Volumes/Seagate/Galvanize/nj_payments_all_years_consl.csv',
+                                dtype={'zip':object,'name_d1':object,'name_d5':object,'ndc_d1':object,'ndc_d2':object, \
+                                       'ndc_d3':object, 'ndc_d4':object,'ndc_d5':object, 'npi':object,'company_id':object, \
+                                      'payment_id':object,'record_id':object})
+    #Just replace the npi here for the doctor you're searching for
+    x = paid[paid['npi']=='1922188184'].groupby(['npi','fn','ln','year','company']).agg({'amount':'sum'}).reset_index()
+    tb = pd.pivot_table(x, index=['year'],columns='company',values=['amount']).reset_index()
+    tb.columns = tb.columns.droplevel()
+    tb.columns = ['year']+list(tb.columns)[1:]
+
+    data = []
+
+    for i in range(1,len(tb.columns)):
+        data.append(
+            go.Bar(
+                x=tb['year'],
+                y=tb[tb.columns[len(tb.columns)-i]],
+                name=tb.columns[len(tb.columns)-i],
+                hoverinfo='y+name',
+                hoverlabel={
+                    'font':{'size':11},
+                    'namelength':-1
+                    }
+                )
+            )
+
+    layout = go.Layout(
+        barmode='stack',
+        xaxis={'title':'Year','fixedrange':True,'dtick':1},
+        yaxis={'title':'Amount Recieved by Company','fixedrange':True},
+        title='Payments Recieved by Dr. {} {}'.format(x['fn'].iloc[0],x['ln'].iloc[0]),
+        hovermode='closest'
+    )
+
+    fig = go.Figure(data=data, layout=layout)
+
+    return plotly.offline.plot(fig, output_type='div',show_link=False)
+"""
