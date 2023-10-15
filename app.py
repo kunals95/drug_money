@@ -13,10 +13,14 @@ app = Flask(__name__)
 
 doc_info = pd.read_csv('csv/nj_doc_info_paid.csv',dtype={'Zip Code':object,'NPI':object})
 doc_info.fillna(value='-',inplace=True)
+"""
 paid = pd.read_csv('csv/nj_payments_all_years_consl.csv',
                             dtype={'zip':object,'npi':object,'company_id':object}, \
                   usecols=[1,2,3,10,11,12,13,26])
-scripts = pd.read_csv('csv/nj_scripts_all_years.csv',dtype={'zip':object,'npi':object})
+"""
+paid = pd.read_csv('csv/nj_payments_all_years_consl_slim.csv',
+                            dtype={'zip':object,'npi':object,'company_id':object})
+scripts = pd.read_csv('csv/nj_scripts_all_years_slim.csv',dtype={'zip':object,'npi':object})
 
 @app.route('/')
 def index():
