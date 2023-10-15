@@ -2,4 +2,5 @@
 venv
 *~
 .DS_Store
-csvfiles
+csv/nj_scripts_all_years.csv
+csv/nj_payments_all_years_consl.csv
